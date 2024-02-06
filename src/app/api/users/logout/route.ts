@@ -6,10 +6,15 @@ export async function GET(){
             {
                 message:'Logout Successfully',
                 success:true
+                
             }
 
         )
-         response.cookies.delete("taken")
+         response.cookies.set("taken","", {
+    httpOnly: true,
+    maxAge: 0, 
+    expires:new Date(0),
+  })
         return response
     } catch (error:any) {
         return NextResponse.json({error:error.message},{status:500})
