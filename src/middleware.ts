@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
 
   const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail'
 /* Here verifyemail is public path because when we confirm by email than will use this  */
-  const token = request.cookies.get('token')?.value || '' /* here we used || '' because if we dnt write than it will return undefined */
+  const token = request.cookies.get("taken")?.value || '' /* here we used || '' because if we dnt write than it will return undefined */
 /* Here we will check token  */
   if(isPublicPath && token) {
     return NextResponse.redirect(new URL('/profile', request.nextUrl))
