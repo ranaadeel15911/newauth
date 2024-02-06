@@ -11,7 +11,7 @@ try {
     // const userId = await fetchDataFromToken(request)
     /* We can use both of method means make a separate file like fetchDataFromToken and write code otherwise write these two line code
     14 and 15 */
-    const token = request.cookies.get("token")?.value || ''
+    const token = request.cookies.get("taken")?.value || ''
     const decodedInformation:any = jwt.verify(token,process.env.TOKEN_SECRET!)
      const user=await User.findOne({
         _id:decodedInformation.id
